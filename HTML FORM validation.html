@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html form validation</title>
+    <header style="  display:inline; color:rgb(190, 165, 165); background-color:  aqua; font-size: 25pt;">HTML FORM VALIDATION</header><br><br>
+    <p id="logger"></p>
+</head>
+
+<script>
+         var logg = document.getElementsById("logger");
+    clientSideFormProcessor = () => {
+        let formHandle = document.forms["userform"];
+        logg.innerHTML=
+        `LOGGER: First Name ${formHandle.fName.value}
+        <br>Password : ${formHandle.mypassword.value}`;
+
+        if(formhandle.myPassword.value.length<8){
+            formhandle.myPassword.style="background-color:red";
+        }
+    }
+
+
+</script>
+
+<form  name ="userform" action="form-action.js" method="post">
+    <label>First Name :</label><input type = "text" name="fName">
+    <br><br>
+    <label>password :</label><input type="password" name="myPassword"><br><br>
+   
+     <br>
+    which one is your favorite sport?<br>
+    <input type="radio" name="sports" value="cricket">cricket<br>
+    <input type="radio" name="sports" value="football">football<br>
+    <input type="radio" name="sports" value="volleyball">volleyball<br>
+    <input type="radio" name="sports" value="tennis">tennis<br>
+    <input type="radio" name="sports" value="basketball" checked>basketball<br>
+<br><br>
+
+
+
+<select name=fruits>
+<option value="mango">mango</option>
+<option value="">mango</option>
+<option value="mango">mango</option>
+
+</select><br><br>
+
+
+<!--Textarea processing --> 
+<textarea  rows="15" cols="10">tell us about yourself</textarea>
+
+<br><br>
+<button onclick="clientSideFormProcessor ();return false">submit</button>
+
+
+
+
+</form>    
+</body>
+</html>

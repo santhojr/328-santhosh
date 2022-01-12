@@ -1,0 +1,133 @@
+<!-- fetch ajax-post  demo --> 
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch API </title>
+    <header style="font-size: 14pt; color:white; background-color: black; text-align: center;display:inline">Fetch API
+        demo</header>
+    <hr>
+    <div id="logger"></div>
+    <hr>
+</head>
+<script>
+    var logg = document.getElementById("logger");
+ 
+    sendAJaxRequest = () => {
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then(res => res.json())
+            .then(res => logg.innerHTML = res[7].address.city);
+    };
+ 
+    Fetch API for posting form content
+    sendAJaxPostRequest = () => {
+        fetch(
+            "https://jsonplaceholder.typicode.com/posts",
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    userId: "1",
+                    title: document.forms["f1form"].n1.value,
+                    body: document.forms["f1form"].n2.value
+                }),
+                headers: {
+                    "Content-type": "application/json;chartset=UTF-8"
+                }
+            }
+        )
+            .then(res => res.json())
+            .then(res => logg.innerHTML =
+                `Response of posting. id=${res.id} title=${res.title}`);
+    };
+ 
+ 
+ 
+</script>
+ 
+<body>
+    <p>Fetch API to get content. Click to fetchdata using fetch API</p>
+    <button onclick="sendAJaxRequest();">Click here to send an Fetch-aysnchronous request</button>
+ 
+    <br><br>
+    <form name="f1form">
+        <br>Title: <input type="text" name="n1">
+        <br>Body: <input type="text" name="n2">
+    </form>
+ 
+    <p>Fetch API to post content. Click to fetchdata using fetch API</p>
+    <button onclick="sendAJaxPostRequest();">Click here to post an Fetch-aysnchronous request</button>
+</body>
+ 
+</html>
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <header>AJAX fetch</header><br>
+    <hr>
+    <div id="logger"></div>
+    <hr>
+</head>
+
+
+<script>
+    var logg = document.getElementById("logger");
+
+
+    sendAJaxRequest = () => {
+
+        fetch("https://jsonplaceholder.typicode.com/comments")
+            .then(response => (response.json()))
+            .then(response => logg.innerHTML = response[7].body);
+    }
+
+
+    sendAJaxPostRequest = () => {
+        fetch(
+            "https://jsonplaceholder.typicode.com/posts",
+            {
+                method: "POST",
+                body : JASON.singnify({
+                    userId: "12",
+
+
+
+                
+            })
+
+
+        }
+    
+
+
+        )
+
+
+
+        
+    }
+
+
+
+
+
+</script>
+
+<body>
+
+    <button onclick="sendAJaxRequest();">click here to send fetch </button>
+
+<br><br>
+<button onclick="sendAJaxPostRequest();">click here to send fetch </button>
+
+
+
+</body>
+
+</html>
+-->

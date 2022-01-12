@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax example</title>
+    <header style="  display:inline; color:rgb(0, 0, 0); background-color:  rgb(189, 197, 197); font-size: 25pt;">AJAX
+        REQUEST</header><br><br>
+
+    <br>
+    <div id="logger"></div>
+</head>
+<script>
+
+    var logg = document.getElementById("logger");
+    const sendAJXRequest = () => {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = callBack;
+
+        request.open("GET", "https://jsonplaceholder.typicode.com/comments")
+        request.send(null);
+    };
+
+
+    callBack = (evt) => {
+        if ((evt.currentTarget.readyState == 4)
+            && (evt.currentTarget.status == 200 || evt.currentTarget.status == 0)); {
+            var json_data = JSON.parse(evt.currentTarget.responseText);
+
+           /* logg.innerHTML = logg.innerHTML +
+                `Name of first person : ${json_data[0].name}`;
+            logg.innerHTML = logg.innerHTML +
+                `<br>  Address of first person :
+   ${JSON.stringify(json_data[0].address)}`;
+
+            logg.innerHTML = logg.innerHTML +
+                `<br> All details of second person : ${JSON.stringify(json_data[0])}`;
+*/
+            logg.innerHTML = logg.innerHTML +
+                `<br> name of 7th user : ${JSON.stringify(json_data[7].name)}`;
+
+
+        }
+    }
+
+</script>
+
+<body>
+    <p>hbfjds</p>
+    <button onclick="sendAJXRequest();">click here</button>
+</body>
+
+</html>

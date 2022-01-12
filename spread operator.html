@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread operator</title>
+
+</head>
+
+<body>
+    <script>
+        function average(a, b,) {
+            return (a + b) / 2;
+        }
+
+        document.write(`<br>Average of 12 3 21 is ${average(10, 20, 30)}`);
+
+
+        var arr1 = [12, 3, 8, 21];
+        var arr2 = [6, 24, 18];
+
+
+        var arr1Avr = average(...arr1);
+        document.write(`<br>Average of Array 1[12,3,8,21] is ${arr1Avr}`);
+        var arr2Avr = average(...arr2);
+        document.write(`<br>Average of Array 2 is ${arr2Avr}`);
+
+        var Arrcombined = [...arr1, ...arra2];
+        document.write('<br>combined arraylist of ${arr1Avr} ');
+
+
+
+
+    </script>
+
+</body>
+
+</html>
